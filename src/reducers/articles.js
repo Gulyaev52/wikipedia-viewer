@@ -13,9 +13,9 @@ export default function(state = initialArticles, action) {
                 isFetching: true
             };
         case RECEIVE_ARTICLES:
-            return {
-                ...state,
-                items: action.articles
+            return { 
+                items: action.articles,
+                isFetching: false
             };
         default:
             return state;

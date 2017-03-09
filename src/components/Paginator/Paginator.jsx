@@ -7,7 +7,7 @@ import './Paginator.styl';
 class Paginator extends React.Component {
     selectPage({ target }) { 
         if ('pageNum' in target.dataset) {
-            const pageNum = target.dataset.pageNum; 
+            const pageNum = Number(target.dataset.pageNum); 
             this.props.onSelectPage(pageNum);
         }
     }

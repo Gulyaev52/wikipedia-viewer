@@ -1,19 +1,18 @@
-import './Searchbar.styl';
-
 import React from 'react';
 import classNames from 'classnames';
 
+import './Searchbar.styl'; 
 
-export default class Searchbar extends React.Component {
-    render() {
-        const { text, isOpen } = this.props;
 
-        return (
-            <div className={classNames('searchbar', { 'searchbar_open': isOpen })}>
-                <form className='searchbar__form'>
-                    <input className='searchbar__input' />
-                </form>
-            </div>
-        );
-    }
-}
+const Searchbar = ({ text, isOpen, onSubmit }) => (
+    <div className={classNames('searchbar', { 'searchbar_open': true })}>
+        <form className='searchbar__form' onSubmit={(e) => {
+            e.preventDefault(); 
+            onSubmit(text);
+        }}>
+            <input className='searchbar__input' />
+        </form>
+    </div>
+);  
+
+export default Searchbar;
