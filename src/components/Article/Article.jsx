@@ -4,10 +4,10 @@ import './Article.styl';
 
 const Article = ({ title, description, link='#' }) => {
     return (
-        <a href={link} className='article'>
+        <a href={link} target='_blank' className='article'>
             <h2 className='article__title'>{title}</h2>
             <p className='article__description'>
-                {description}
+                {description || '...'}
             </p>
         </a>
     );

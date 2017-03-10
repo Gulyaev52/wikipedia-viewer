@@ -1,20 +1,22 @@
-import { TOGGLE_SEARCHBAR, EDIT_SEARCHBAR } from '../constants/ActionTypes';
+import { OPEN_SEARCHBAR, CLOSE_SEARCHBAR, EDIT_SEARCH } from '../constants/ActionTypes';
 
 const initialSearchbar = {
     isOpen: false,
-    text: ''
+    text: null
 };
 
 export default function(state = initialSearchbar, action) {
     switch (action.type) {
-        case TOGGLE_SEARCHBAR:
-            return {
-                ...initialSearchbar,
-                isOpen: !state.isOpen
+        case OPEN_SEARCHBAR:
+            return { 
+                isOpen: true,
+                text: ''
             };
-        case EDIT_SEARCHBAR:
+        case CLOSE_SEARCHBAR:
+            return initialSearchbar;
+        case EDIT_SEARCH:
             return {
-                ...initialSearchbar,
+                ...state,
                 text: action.text
             };
         default: 

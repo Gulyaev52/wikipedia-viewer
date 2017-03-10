@@ -1,4 +1,4 @@
-import { TOGGLE_PAGE, RECEIVE_ARTICLES } from '../constants/ActionTypes';
+import { TOGGLE_PAGE, RECEIVE_ARTICLES, REQUEST_ARTICLES } from '../constants/ActionTypes';
 import { COUNT_ARTICLES_PER_PAGE } from '../constants/Paginator';
 import { getCountPages } from '../helpers';
 
@@ -15,6 +15,8 @@ export default function(state = initialPaginator, action) {
                 ...state,
                 currentPage: action.pageNum
             };
+        case REQUEST_ARTICLES:
+            return initialPaginator;
         case RECEIVE_ARTICLES: 
             const countPages = getCountPages(action.articles.length, 
                                              COUNT_ARTICLES_PER_PAGE);

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Searchbar from '../components/Searchbar/Searchbar';
-import { fetchArticles } from '../actions';
+import { fetchArticles, openSearchBar, closeSearchBar, editSearch } from '../actions';
 
 
 const mapStateToProps = (state) => {
@@ -15,6 +15,15 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onSubmit(text) {
             dispatch(fetchArticles(text));
+        },
+        onOpen() { 
+            dispatch(openSearchBar());
+        },
+        onClose() {
+            dispatch(closeSearchBar());
+        },
+        onEditText(text) {
+            dispatch(editSearch(text));
         }
     }
 }
